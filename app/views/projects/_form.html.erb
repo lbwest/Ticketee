@@ -1,4 +1,6 @@
 <%= form_for(@project) do |f| %>
+  <%= f.error_messages %>
+
   <div class="field">
     <%= f.label :name, "Project Name:" %><br />
     <%= f.text_field :name %>
