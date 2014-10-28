@@ -87,6 +87,13 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   end
 end
 
+# scope variable identifies a <div> that should contain the required title
+Then /^(?:|I )should see "(.*?)" in the "([^"]*)" title$/ do |title, scope|
+	within "#{@scope || ''} h3" do
+		page.should have_content(title)
+	end
+end
+
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
